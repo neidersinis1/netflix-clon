@@ -1,26 +1,54 @@
-import { NextApiRequest } from "next";
-import { getSession } from "next-auth/react";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
 
-import prismadb from '@/lib/prismadb'
+import prismadb from '@/lib/prismadb';
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-const ServerAuth = async (req:NextApiRequest) => {
-    const session = await getSession({ req });
+const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
+  const session = await getServerSession(req, res, authOptions);
 
-    if(!session?.user?.email) {
-        throw new Error('Not signed in');
+  if (!session?.user?.email) {
+    throw new Error('Not signed in');
+  }
+
+  const currentUser = await prismadb.user.findUnique({
+    where: {
+      email: session.user.email,
     }
+  });
+  
+  if (!currentUser) {
+    throw new Error('Not signed in');
+  }
 
-    const currentUser = await prismadb.user.findUnique({
-        where: {
-            email: session.user.email,
-        }
-    });
+  return { currentUser };
+}
 
-    if (!currentUser) {
-        throw new Error('Not signed in');
-    }
+export default serverAuth;
 
-    return { currentUser };
-};
+// import { NextApiRequest } from "next";
+// import { getSession } from "next-auth/react";
 
-export default ServerAuth;
+// import prismadb from '@/lib/prismadb'
+
+// const ServerAuth = async (req:NextApiRequest) => {
+//     const session = await getSession({ req });
+
+//     if(!session?.user?.email) {
+//         throw new Error('Not signed in');
+//     }
+
+//     const currentUser = await prismadb.user.findUnique({
+//         where: {
+//             email: session.user.email,
+//         }
+//     });
+
+//     if (!currentUser) {
+//         throw new Error('Not signed in');
+//     }
+
+//     return { currentUser };
+// };
+
+// export default ServerAuth;
