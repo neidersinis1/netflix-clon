@@ -27,8 +27,8 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
           </p>
         </div>
         <hr className="bg-gray-600 border-0 h-px my-4" />
-        <div onClick={() => signOut()} className="px-3 text-center text-white textsm hover:underline">
-            sign out of Netflix
+        <div onClick={() => signOut()} className="px-3 text-center text-white text-sm hover:underline">
+            sign out of Peliflix
         </div>
       </div>
     </div>

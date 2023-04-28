@@ -23,7 +23,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
           flex
           flex-row
           items-center
-          hover:bg-neutral-300
+          hover:bg-gray-300
           transition
         "
     >

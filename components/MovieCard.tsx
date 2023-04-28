@@ -14,7 +14,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { openModal } = useInfoModal();
 
   return (
-    <div className="group bg-zinc-900 col-span relative h-[12vw]">
+    <div className="group bg-zinc-100 col-span relative sm:h-[20vw] h-[50vw]">
       <img
         className="
         cursor-pointer
@@ -26,8 +26,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         group-hover:opacity-90
         sm:group-hover:opacity-0
         delay-300
+        sm:h-[20vw]
         w-full
-        h-[12vw]
+        h-[50vw]
       "
         src={data.thumbnailUrl}
         alt="Caratula"
@@ -40,13 +41,13 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           transition
           duration-200
           z-10
-          invisible
+          visible
           sm:visible
           delay-300
           w-full
           scale-0
           group-hover:scale-110
-          group-hover:-translate-y-[6vw]
+          group-hover:-translate-y-[-1vw]
           group-hover:translate-x-[2vw]
           group-hover:opacity-100
         "
@@ -60,7 +61,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                shadow-xl
                rounded-t-md
                w-full
-               h-[12vw]
+               sm:h-[20vw]
+               h-[30vw]
              "
           src={data.thumbnailUrl}
           alt="caratula"
@@ -92,7 +94,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                       justify-center
                       items-center
                       transition
-                      hover:bg-neutral-300
+                      hover:bg-gray-300
                     "
               onClick={() => router.push(`/watch/${data?.id}`)}
             >
@@ -102,7 +104,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             <div 
               onClick={() => openModal(data?.id)}
             className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
-              <BiChevronDown size={20} className="text-white group-hover/item:text-neutral-300" />
+              <BiChevronDown size={20} className="text-white group-hover/item:text-gray-300" />
             </div>
           </div>
           <p className="text-green-400 font-semibold mt-4">
