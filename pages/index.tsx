@@ -9,10 +9,6 @@ import useFavorites from "@/hooks/useFavorites";
 import InfoModal from "@/components/InfoModal";
 import useInfoModal from "@/hooks/useInfoModal";
 
-// import Image from 'next/image'
-// import { Inter } from 'next/font/google'
-
-// const inter = Inter({ subsets: ['latin'] })
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
