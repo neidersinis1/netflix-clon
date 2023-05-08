@@ -4,6 +4,7 @@ import { BiChevronDown } from 'react-icons/bi';
 import FavoriteButton from "./FavoriteButton";
 import { useRouter } from "next/router";
 import useInfoModal from "@/hooks/useInfoModalStore"; 
+import Image from 'next/image'
 
 interface MovieCardProps {
   data: Record<string, any>;
@@ -15,7 +16,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   return (
     <div className="group bg-zinc-100 col-span relative sm:h-[20vw] h-[50vw]">
-      <img
+      <Image width={200}height={200}
         className="
         cursor-pointer
         object-cover
@@ -52,7 +53,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           group-hover:opacity-100
         "
       >
-        <img
+        <Image width={200}height={200}
           className="
                cursor-pointer
                object-cover
