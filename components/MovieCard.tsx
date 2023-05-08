@@ -15,7 +15,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { openModal } = useInfoModal();
 
   return (
-    <div className="group bg-zinc-100 col-span relative sm:h-[20vw] h-[50vw]">
+    <div className="group bg-gray-100 col-span relative sm:h-[20vw] h-[50vw]">
       <Image width={200}height={200}
         className="
         cursor-pointer
