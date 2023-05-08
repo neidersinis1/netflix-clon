@@ -5,7 +5,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import PlayButton from '@/components/PlayButton';
 import FavoriteButton from '@/components/FavoriteButton';
-import useInfoModal from '@/hooks/useInfoModal';
+import useInfoModal from '@/hooks/useInfoModalStore';
 import useMovie from '@/hooks/useMovie';
 
 interface InfoModalProps {

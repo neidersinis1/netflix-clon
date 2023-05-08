@@ -2,6 +2,7 @@ import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { useRouter } from "next/router";
+import Link from 'next'
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
